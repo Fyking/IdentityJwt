@@ -128,7 +128,9 @@ namespace IdentityCookie.Controllers
             {
                 //这里通过 HttpContext.User.Claims 可以将我们在Login这个Action中存储到cookie中的所有
                 //claims键值对都读出来，比如我们刚才定义的UserName的值admin就在这里读取出来了
-                var userName = HttpContext.User.FindFirst(ClaimTypes.Name).Value;
+                var userName = HttpContext.User.FindFirst(ClaimTypes.Name).Value;//名字
+                var Role = HttpContext.User.FindFirst(ClaimTypes.Role).Value;//权限码
+                var SId = HttpContext.User.FindFirst(ClaimTypes.Sid).Value;//唯一验证码
             }
             return requestURL.Value;
         }
